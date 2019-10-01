@@ -3,6 +3,7 @@ import pickle
 import os.path
 from pycocotools.coco import COCO
 from collections import Counter
+from pathlib import Path
 
 class Vocabulary(object):
 
@@ -12,7 +13,7 @@ class Vocabulary(object):
         start_word="<start>",
         end_word="<end>",
         unk_word="<unk>",
-        annotations_file='../cocoapi/annotations/captions_train2014.json',
+        annotations_file=Path.home()/'annotations/captions_train2014.json',
         vocab_from_file=False):
         """Initialize the vocabulary.
         Args:
