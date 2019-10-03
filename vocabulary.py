@@ -13,7 +13,7 @@ class Vocabulary(object):
         start_word="<start>",
         end_word="<end>",
         unk_word="<unk>",
-        annotations_file=Path.home()/'annotations/captions_train2014.json',
+        annotations_file=Path.home()/'data/annotations/captions_train2014.json',
         vocab_from_file=False):
         """Initialize the vocabulary.
         Args:
