@@ -51,4 +51,13 @@ class DecoderRNN(nn.Module):
         """ Accepts pre-processed image tensor (inputs) and returns
             predicted sentence (list of tensor ids of length max_len)
         """
-        pass
+        res = []
+        for i in range(max_len):
+            lstm_out, states = self.lstm(inputs, states)  # hiddens: (1, 1, hidden_size)
+            outputs = self.linear(lstm_out.squeeze(1))  # outputs: (1, vocab_size)
+            _, predicted = outputs.max(dim=1)  # predicted: (1, 1)
+            res.append(predicted.item())
+
+            inputs = self.embedding(predicted)  # inputs: (1, embed_size)
+            inputs = inputs.unsqueeze(1)  # inputs: (1, 1, embed_size)
+        return res
