@@ -33,8 +33,8 @@ args = Namespace(
 
     # ===================== misc params =====================
 
-    batch_size=32,  # batch size
-    vocab_from_file=False,  # if True, load existing vocab file
+    batch_size=128,  # batch size
+    vocab_from_file=True,  # if True, load existing vocab file
 
     # ===================== already set =====================
     num_epochs=3,  # number of training epochs
